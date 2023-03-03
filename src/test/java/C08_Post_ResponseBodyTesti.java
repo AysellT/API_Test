@@ -5,7 +5,7 @@ import org.json.JSONObject;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
-import static javafx.beans.binding.Bindings.when;
+
 
 public class C08_Post_ResponseBodyTesti {
 
