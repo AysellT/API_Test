@@ -1,5 +1,11 @@
+import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
 import org.json.JSONObject;
 import org.junit.Test;
+import org.testng.asserts.SoftAssert;
+
+import static io.restassured.RestAssured.given;
 
 public class C16_Put_SoftAssertIleExpectedDataTesti {
 
@@ -57,10 +63,24 @@ public class C16_Put_SoftAssertIleExpectedDataTesti {
         expectedBody.put("data",requestBody);
         expectedBody.put("message","Successfully! Record has been updated.");
 
-
         //3-request gonder response'i kaydet
+        Response response = given().contentType(ContentType.JSON)
+                                   .when().body(requestBody.toString())
+                                   .put(url);
 
         //4-Assertion
+        JsonPath responseJsonPath = response.jsonPath();
+
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(responseJsonPath.get("status"),expectedBody.get("status"));
+        softAssert.assertEquals(responseJsonPath.get("message"),expectedBody.get("message"));
+        softAssert.assertEquals(responseJsonPath.get("data.status"),expectedBody.getJSONObject("data").get("status"));
+        softAssert.assertEquals(responseJsonPath.get("data.data.name"),expectedBody.getJSONObject("data").getJSONObject("data").get("name"));
+        softAssert.assertEquals(responseJsonPath.get("data.data.id"),expectedBody.getJSONObject("data").getJSONObject("data").get("id"));
+        softAssert.assertEquals(responseJsonPath.get("data.data.salary"),expectedBody.getJSONObject("data").getJSONObject("data").get("salary"));
+        softAssert.assertEquals(responseJsonPath.get("data.data.age"),expectedBody.getJSONObject("data").getJSONObject("data").get("age"));
+        softAssert.assertAll();
 
     }
+
 }
