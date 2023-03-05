@@ -67,7 +67,28 @@ public class C17_BaseUrlDummyRestapi extends BaseUrlJsonPlaceHolder {
                 .assertThat()
                 .statusCode(200)
                 .body("title",Matchers.equalTo("optio dolor molestias sit"));
+    }
 
+    @Test
+    public void tes03(){
+        //3- https://jsonplaceholder.typicode.com/posts/50 endpointine bir DELETE request gonderdigimizde
+        //donen response’un status code’unun 200 oldugunu ve response body’sinin null oldugunu test edin
+
+        //request ve end-point olustur
+        specJsonPlaceHolder.pathParams("pp1","posts","pp2","50");
+
+        //expexted data olustur
+
+        //request gonder ve donen response'i kaydet
+        Response response = given()
+                                   .when().spec(specJsonPlaceHolder).delete("/{pp1}/{pp2}");
+
+        //assertion
+        response
+                .then()
+                .assertThat()
+                .statusCode(200)
+                .body("title",Matchers.nullValue());
 
     }
 
