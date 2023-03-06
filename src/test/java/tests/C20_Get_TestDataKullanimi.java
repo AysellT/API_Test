@@ -1,6 +1,5 @@
 package tests;
 
-import baseUrl.BaseUrlHerokuapp;
 import baseUrl.BaseUrlJsonPlaceHolder;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
@@ -11,7 +10,7 @@ import testData.JsonPlaceHolderTestData;
 
 import static io.restassured.RestAssured.given;
 
-public class C20_ extends BaseUrlJsonPlaceHolder {
+public class C20_Get_TestDataKullanimi extends BaseUrlJsonPlaceHolder {
 
     @Test
     public void test(){
