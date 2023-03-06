@@ -36,7 +36,7 @@ public class C20_Get_TestDataKullanimi extends BaseUrlJsonPlaceHolder {
         JSONObject expectedData = JsonPlaceHolderTestData.responseBodyOlustur22();
 
         //3-request gonder response'i kaydet
-        Response response = given().spec(specJsonPlaceHolder).when().get("{pp1}/{pp2}");
+        Response response = given().spec(specJsonPlaceHolder).when().get("/{pp1}/{pp2}");
 
         //4-Assertion
         JsonPath responseJsonPath = response.jsonPath();
