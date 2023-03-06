@@ -6,7 +6,7 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.json.JSONObject;
 import org.junit.Test;
-import testData.JsonPlaceHolderTestData;
+import testData.TestDataJsonPlaceHolder;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
@@ -42,10 +42,10 @@ public class C22_Put_TestDataKullanimi extends BaseUrlJsonPlaceHolder {
         //1-request ve endpoint olustur
         specJsonPlaceHolder.pathParams("pp1","posts","pp2","70");
 
-        JSONObject requestBody = JsonPlaceHolderTestData.JsonBodyOlustur(10,70,"Ahmet","Merhaba");
+        JSONObject requestBody = TestDataJsonPlaceHolder.JsonBodyOlustur(10,70,"Ahmet","Merhaba");
 
         //2-expected data olustur
-        JSONObject expectedData = JsonPlaceHolderTestData.JsonBodyOlustur(10,70,"Ahmet","Merhaba");
+        JSONObject expectedData = TestDataJsonPlaceHolder.JsonBodyOlustur(10,70,"Ahmet","Merhaba");
 
         //3-request gonder response'i kaydet
         Response response = given()
@@ -53,9 +53,9 @@ public class C22_Put_TestDataKullanimi extends BaseUrlJsonPlaceHolder {
                             .when().body(requestBody.toString()).put("/{pp1}/{pp2}");
 
         //4-Assertion
-        assertEquals(JsonPlaceHolderTestData.basariliStatusCode,response.statusCode());
-        assertEquals(JsonPlaceHolderTestData.contentType,response.contentType());
-        assertEquals(JsonPlaceHolderTestData.headerConnection,response.header("Connection"));
+        assertEquals(TestDataJsonPlaceHolder.basariliStatusCode,response.statusCode());
+        assertEquals(TestDataJsonPlaceHolder.contentType,response.contentType());
+        assertEquals(TestDataJsonPlaceHolder.headerConnection,response.header("Connection"));
 
         JsonPath responseJsonPath = response.jsonPath();
         assertEquals(expectedData.getInt("id"),responseJsonPath.getInt("id"));

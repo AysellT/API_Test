@@ -1,9 +1,8 @@
 package testData;
 
 import org.json.JSONObject;
-import org.junit.Test;
 
-public class JsonPlaceHolderTestData {
+public class TestDataJsonPlaceHolder {
 
         public static int basariliStatusCode = 200;
         public static String contentType = "application/json; charset=utf-8";

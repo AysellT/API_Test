@@ -6,7 +6,7 @@ import io.restassured.response.Response;
 import org.json.JSONObject;
 import org.junit.Assert;
 import org.junit.Test;
-import testData.JsonPlaceHolderTestData;
+import testData.TestDataJsonPlaceHolder;
 
 import static io.restassured.RestAssured.given;
 
@@ -33,7 +33,7 @@ public class C20_Get_TestDataKullanimi extends BaseUrlJsonPlaceHolder {
         specJsonPlaceHolder.pathParams("pp1","posts","pp2","22");
 
         //2-expected data olustur
-        JSONObject expectedData = JsonPlaceHolderTestData.responseBodyOlustur22();
+        JSONObject expectedData = TestDataJsonPlaceHolder.responseBodyOlustur22();
 
         //3-request gonder response'i kaydet
         Response response = given().spec(specJsonPlaceHolder).when().get("/{pp1}/{pp2}");
@@ -41,7 +41,7 @@ public class C20_Get_TestDataKullanimi extends BaseUrlJsonPlaceHolder {
         //4-Assertion
         JsonPath responseJsonPath = response.jsonPath();
 
-        Assert.assertEquals(JsonPlaceHolderTestData.basariliStatusCode,response.statusCode());
+        Assert.assertEquals(TestDataJsonPlaceHolder.basariliStatusCode,response.statusCode());
         Assert.assertEquals(expectedData.getInt("userId"),responseJsonPath.getInt("userId"));
         Assert.assertEquals(expectedData.getInt("id"),responseJsonPath.getInt("id"));
         Assert.assertEquals(expectedData.getString("title"),responseJsonPath.getString("title"));
