@@ -3,6 +3,9 @@ package testData;
 import netscape.javascript.JSObject;
 import org.json.JSONObject;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class TestDataHerokuapp {
 
     /*
@@ -39,6 +42,8 @@ public class TestDataHerokuapp {
 
     }
 
+
+
     /*
         {
               "bookingid": 24,
@@ -55,7 +60,6 @@ public class TestDataHerokuapp {
          }
 
      */
-
     public static JSONObject jsonResponseBodyOlustur(){
 
         JSONObject responseBody = new JSONObject();
@@ -65,6 +69,6 @@ public class TestDataHerokuapp {
         responseBody.put("booking",bookingBody);
 
         return responseBody;
-
     }
+
 }
