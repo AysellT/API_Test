@@ -18,7 +18,7 @@ public class PojoJsonPlaceHolder {
     private int id;
 
 
-    //1- tum variable'lar icin getter ve setter methodlari olustur
+    //2- tum variable'lar icin getter ve setter methodlari olustur
     public String getTitle() {
         return title;
     }
@@ -65,7 +65,6 @@ public class PojoJsonPlaceHolder {
     }
 
     //5- toString methodu olustur
-
     @Override
     public String toString() {
         return "PojoJsonPlaceHolder{" +
