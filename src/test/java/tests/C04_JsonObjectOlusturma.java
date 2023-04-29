@@ -25,10 +25,6 @@ public class C04_JsonObjectOlusturma {
         System.out.println(obj1);
 
 
-
-
-
-
         //1-request ve endpoint olustur
 
         //2-expected data olustur
