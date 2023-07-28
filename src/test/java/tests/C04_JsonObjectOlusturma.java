@@ -24,6 +24,7 @@ public class C04_JsonObjectOlusturma {
 
         System.out.println(obj1);
 
+
     }
 
 }
