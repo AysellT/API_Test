@@ -22,17 +22,8 @@ public class C04_JsonObjectOlusturma {
         obj1.put("body","Merhaba");
         obj1.put("userId",1);
 
-
         System.out.println(obj1);
 
-
-        //1-request ve endpoint olustur
-
-        //2-expected data olustur
-
-        //3-request gonder response'i kaydet
-
-        //4-Assertion
     }
 
 }
