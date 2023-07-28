@@ -22,6 +22,7 @@ public class C04_JsonObjectOlusturma {
         obj1.put("body","Merhaba");
         obj1.put("userId",1);
 
+
         System.out.println(obj1);
 
 
